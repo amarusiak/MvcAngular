@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*The ng-controller directive defines which controller 
+will be in charge of your view.*@
+
+@*The ng-controller directive attaches a controller class to the view. 
+We can attach multiple controller to a single view. *@
+
+@*We can attach a controller object to a DOM element 
+using the ng-controller directive on an object, like so:*@
+
+<div ng-controller="HomeController">
+    {{Message}}
+</div>
+
+@*When a controller attached 
+it creates a new $scope object for the DOM element.*@

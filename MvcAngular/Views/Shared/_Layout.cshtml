@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+    @* for auto bootstrap *@
+<body ng-app="MyApp">
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @* Add Angular Library here *@
+    @Scripts.Render("~/bundles/angular")
+    <script src="~/Scripts/MyApp.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
