@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Part3";
+}
+
+<style>
+     input{
+        padding:5px;
+        border:1px solid #A5A5A5;
+    }
+    input.ng-dirty.ng-invalid {
+        border:1px solid red;
+        background-color:rgb(255, 244, 244);
+    }
+    .error {
+        color:red;
+    }
+</style>
+
+<h2>Part3 - Create Login Page</h2>
+
+<div ng-controller="Part3Controller">
+
+   @* ng-submit prevents the default action of form and binds angular function to onsubmit events. 
+    This is invoked when form is submitted (submit button is pressed).*@
+
+    <form novalidate name="f1" ng-submit="Login()">
+        <div style="color:rgb(142,2,2)">{{Message}}</div>
+
+        @*ngShow allow us to display or hide different elements based on the expression provided to the ngShow attribute.*@
+        <!-- Here  ng-show="!IsLogedIn" means I want to hide table after loged in-->
+        <table ng-show="!IsLogedIn"> 
+            <tr>
+                <td>Username : </td>
+                <td>
+                    @*ng-model has two-way data binding [$scope to View and View to $scope]. 
+                    Its also has built-in validation and Keeping the state of the control. 
+                    Based on the state its set related class to the element.*@
+
+                    <!-- Here ng-class="Submitted?'ng-dirty':''" means if submitted (clicked submit button) 
+                        then make this dirty state for show red border-->
+                    <input type="text" ng-model="LoginData.Username" name="cUsername" ng-class="Submitted?'ng-dirty':''" required autofocus />
+                    
+                    <!-- ng-show="(f1.cUsername.$dirty || Submitted) && f1.cUsername.$error.required" means 
+                        I want to show this span only when the control cUsername is invalid-->
+                    <span class="error" ng-show="(f1.cUsername.$dirty || Submitted) && f1.cUsername.$error.required">Username required</span>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>Password : </td>
+                <td>
+                    <input type="password" ng-model="LoginData.Password"  name="cPassword" ng-class="Submitted?'ng-dirty':''" required autofocus />
+                    <span class="error" ng-show="(f1.cPassword.$dirty || Submitted) && f1.cPassword.$error.required">Password required</span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+
+@section scripts{
+    <script src="~/Scripts/AngularController/Part3Controller.js"></script>
+}

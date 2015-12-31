@@ -16,5 +16,17 @@ namespace MvcAngular.Controllers
             return View();
         }
 
+        //// Fetch & Show Database Data
+        //public ActionResult Part2() 
+        //{
+        //  return View();
+        //}
+
+        // Create Login Page
+        public ActionResult Part3() 
+        {
+          return View();
+        }
+
     }
 }
