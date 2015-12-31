@@ -4,14 +4,15 @@ using System.Linq;
 using System.Web;
 
 using System.Data.Entity;
+using MvcAngular.Domain.Entities;
+using MvcAngular.Domain.Abstract;
 
-namespace MvcAngular.Domain
+namespace MvcAngular.Domain.Concrete
 {
  
-  public class MyDatabaseEntities : DbContext
+  public class MyDatabaseEntities  : DbContext
   {
-    public MyDatabaseEntities()
-      : base("name=MyDatabaseEntities")
+    public MyDatabaseEntities() : base("name=MyDatabaseEntities ")
     {
     }
 

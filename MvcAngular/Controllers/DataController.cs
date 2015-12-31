@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using MvcAngular.Domain;
+using MvcAngular.Domain.Entities;
+using MvcAngular.Domain.Abstract;
+using MvcAngular.Domain.Concrete;
 using MvcAngular.Models;
 
 namespace MvcAngular.Controllers
@@ -27,6 +29,13 @@ namespace MvcAngular.Controllers
 
     public JsonResult UserLogin(LoginData d)
     {
+      {
+        EFUserRepository efUserRepo = new EFUserRepository();
+        User user1 = new User { Username = "user1", Password = "pass1", FullName = "John Doe" };
+        efUserRepo.SaveUser(user1);
+      }
+
+      //
       using (MyDatabaseEntities dc = new MyDatabaseEntities())
       {
         var user = dc.Users.Where(a => a.Username.Equals(d.Username) && a.Password.Equals(d.Password)).FirstOrDefault();
