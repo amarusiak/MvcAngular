@@ -20,7 +20,11 @@ namespace MvcAngular.Controllers
       var encoder = new System.Text.ASCIIEncoding();
 
       var combined = encoder.GetBytes(value ?? "");
-      return BitConverter.ToString(hash.ComputeHash(combined)).ToLower().Replace("-", "");
+
+      return BitConverter
+        .ToString(hash.ComputeHash(combined))
+        .ToLower()
+        .Replace("-", "");
     }
   }
 
@@ -53,6 +57,10 @@ namespace MvcAngular.Controllers
       using (MyDatabaseEntities dc = new MyDatabaseEntities())
       {
         var user = dc.Users.Where(a => a.Username.Equals(d.Username) && a.Password.Equals(d.Password)).FirstOrDefault();
+
+        //string pass1 = dc.Users.Where(a => a.Username.Equals(d.Username)).FirstOrDefault().Password;
+        //var user = dc.Users.Where(a => a.Username.Equals(d.Username) && pass1.Equals( SHA512.Encode(d.Password) )).FirstOrDefault();
+        
         return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
       }
     }
