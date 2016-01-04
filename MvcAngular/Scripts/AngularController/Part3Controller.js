@@ -2,6 +2,7 @@
 angular.module('MyApp')
 .controller('Part3Controller', function ($scope, LoginService) {
     $scope.IsLogedIn = false;
+    $scope.Attempt1 = false;
     $scope.Message = '';
     $scope.Submitted = false;
     $scope.IsFormValid = false;
@@ -18,6 +19,7 @@ angular.module('MyApp')
 
     $scope.Login = function () {
         $scope.Submitted = true;
+
         if ($scope.IsFormValid) {
             LoginService.GetUser($scope.LoginData).then(function (d) {
                 if (d.data.Username != null) {
@@ -26,7 +28,11 @@ angular.module('MyApp')
 
                 }
                 else {
-                    alert('Invalid Credential!');
+                    // alert('Invalid Credential!');
+
+                    //$scope.IsLogedIn = true;
+                    $scope.Attempt1 = true;
+                    $scope.Message = "Error : login failed. Try again later. ";
                 }
             });
         }

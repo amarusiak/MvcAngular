@@ -11,6 +11,20 @@ using MvcAngular.Models;
 
 namespace MvcAngular.Controllers
 {
+  public class SHA512
+  {
+    public static string Encode(string value)
+    {
+      var hash = System.Security.Cryptography.SHA512.Create();
+
+      var encoder = new System.Text.ASCIIEncoding();
+
+      var combined = encoder.GetBytes(value ?? "");
+      return BitConverter.ToString(hash.ComputeHash(combined)).ToLower().Replace("-", "");
+    }
+  }
+
+
   public class DataController : Controller
   {
     //

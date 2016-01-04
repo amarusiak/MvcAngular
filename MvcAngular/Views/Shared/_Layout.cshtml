@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+
+    <!-- Set the page to the width of the device and set the zoon level -->
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -10,12 +15,20 @@
 
     @* for auto bootstrap *@
 <body ng-app="MyApp">
+    @*<div class="container-fluid">*@
+
     @RenderBody()
 
+    @*</div> <!-- container-fluid -->*@
+
     @Scripts.Render("~/bundles/jquery")
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>*@
 
     @* Add Angular Library here *@
     @Scripts.Render("~/bundles/angular")
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <script src="~/Scripts/MyApp.js"></script>
 
     @RenderSection("scripts", required: false)

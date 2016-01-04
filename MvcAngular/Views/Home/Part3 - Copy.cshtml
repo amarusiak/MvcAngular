@@ -48,18 +48,11 @@
 
         @*ngShow allow us to display or hide different elements based on the expression provided to the ngShow attribute.*@
         <!-- Here  ng-show="!IsLogedIn" means I want to hide table after loged in-->
-        <div class="row">
 
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"> </div>
-
-            @*<div ng-show="!IsLogedIn" class="col-lg-4 col-md-4 col-sm-12 col-xs-12"> *@
-            <div ng-show="(!IsLogedIn && !Attempt1)" class="col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
-                
-                <div>
-                    Log in 
-                </div>
-
-                <div>
+        <table ng-show="!IsLogedIn"> 
+            <tr>
+                <td>Username : </td>
+                <td>
                     @*ng-model has two-way data binding [$scope to View and View to $scope]. 
                     Its also has built-in validation and Keeping the state of the control. 
                     Based on the state its set related class to the element.*@
@@ -71,30 +64,24 @@
                     <!-- ng-show="(f1.cUsername.$dirty || Submitted) && f1.cUsername.$error.required" means 
                         I want to show this span only when the control cUsername is invalid-->
                     <span class="error" ng-show="(f1.cUsername.$dirty || Submitted) && f1.cUsername.$error.required">Username required</span>
-                </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>Password : </td>
+                <td>
+                    <input type="password" ng-model="LoginData.Password"  name="cPassword" ng-class="Submitted?'ng-dirty':''" required autofocus />
+                    <span class="error" ng-show="(f1.cPassword.$dirty || Submitted) && f1.cPassword.$error.required">Password required</span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input class="btn btn-default bk-darkblue white" role="button" type="submit" value="Log in" />
+                </td>
+            </tr>
+        </table>
 
-                <div>
-                    @*<div>
-                        Password : 
-                    </div>*@
-                    <div>
-                        <input type="password" ng-model="LoginData.Password"  name="cPassword" ng-class="Submitted?'ng-dirty':''" required autofocus />
-                        <span class="error" ng-show="(f1.cPassword.$dirty || Submitted) && f1.cPassword.$error.required">Password required</span>
-                    </div>
-                </div>
-
-                <div>
-                    <div></div>
-                    <br />
-                    <div>
-                        <input class="btn btn-default bk-darkblue white" role="button" type="submit" value="Log in" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">  </div>
-
-          </div>
 
     </form>
 </div>
