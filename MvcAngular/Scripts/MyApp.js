@@ -1,4 +1,6 @@
-﻿(function () {
+﻿/// <reference path="angular.min.js" />
+
+(function () {
     //Create a Module 
     // Will use ['ng-Route'] when we will implement routing
     var app = angular.module('MyApp', ['ngRoute']);
