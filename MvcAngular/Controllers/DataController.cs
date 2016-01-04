@@ -47,19 +47,25 @@ namespace MvcAngular.Controllers
 
     public JsonResult UserLogin(LoginData d)
     {
-      {
-        EFUserRepository efUserRepo = new EFUserRepository();
-        User user1 = new User { Username = "user1", Password = "pass1", FullName = "John Doe" };
-        efUserRepo.SaveUser(user1);
-      }
+      //{
+      //  EFUserRepository efUserRepo = new EFUserRepository();
+      //  User user1 = new User { Username = "user1", Password = "pass1", FullName = "John Doe" };
+      //  efUserRepo.SaveUser(user1);
+      //}
 
       //
       using (MyDatabaseEntities dc = new MyDatabaseEntities())
       {
-        var user = dc.Users.Where(a => a.Username.Equals(d.Username) && a.Password.Equals(d.Password)).FirstOrDefault();
+        //var user = dc.Users.Where(a => a.Username.Equals(d.Username) && a.Password.Equals(d.Password)).FirstOrDefault();
 
-        //string pass1 = dc.Users.Where(a => a.Username.Equals(d.Username)).FirstOrDefault().Password;
-        //var user = dc.Users.Where(a => a.Username.Equals(d.Username) && pass1.Equals( SHA512.Encode(d.Password) )).FirstOrDefault();
+        //  SHA Encode branch
+        string passFromUI = SHA512.Encode(d.Password);
+        var user = dc.Users.
+          Where(a => (a.Username.Equals(d.Username) && a.Password.Equals(passFromUI))).
+          FirstOrDefault();
+                
+        //string passFromDB = dc.Users.Where(a => a.Username.Equals(d.Username)).FirstOrDefault().Password;
+        //var user = dc.Users.Where(a => (a.Username.Equals(d.Username) && (passFromDB == passFromUI)) ).FirstOrDefault();
         
         return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
       }

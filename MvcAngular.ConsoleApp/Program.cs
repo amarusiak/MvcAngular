@@ -32,8 +32,13 @@ namespace MvcAngular.ConsoleApp
     public static void Main(string[] args)
     {
         EFUserRepository efUserRepo = new EFUserRepository();
-        User user1 = new User { Username = "user1", Password = "pass1", FullName = "John Doe" };
-        //User user1 = new User { Username = "user1", Password = SHA512.Encode("pass1"), FullName = "John Doe" };
+
+        //User user1 = new User { Username = "user1", Password = "pass1", FullName = "John Doe" };
+        User user1 = new User { Username = "user1", Password = SHA512.Encode("pass1"), FullName = "John Doe" };
+
+        Console.WriteLine(user1.Username);
+        Console.WriteLine(user1.Password);
+        Console.WriteLine(user1.FullName);
 
         efUserRepo.SaveUser(user1);
 
