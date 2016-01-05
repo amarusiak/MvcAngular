@@ -7,6 +7,8 @@
     <!-- Set the page to the width of the device and set the zoon level -->
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    @*<script data-main="/js/app" src="/js/require.js"></script>*@
+    <script data-main="../Scripts/app" src="~/Scripts/require.js"></script>
 
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
@@ -27,9 +29,13 @@
     @* Add Angular Library here *@
     @Scripts.Render("~/bundles/angular")
    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
 
     <script src="~/Scripts/MyApp.js"></script>
+    
+    //  RequireJS test
+    <script src="~/Scripts/mymodule.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>
