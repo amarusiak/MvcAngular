@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Atlassian.Jira.Issue>
+﻿<!-- model IEnumerable<Atlassian.Jira.Issue> -->
+
+@model IEnumerable<MvcAngular.Domain.Entities.IssueEntity>
 
 @{
     ViewBag.Title = "Index";
@@ -11,37 +13,37 @@
 </p>
 <table>
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.ParentIssueKey)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Summary)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Environment)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Assignee)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.JiraIdentifier)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Project)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Reporter)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Votes)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Created)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.DueDate)
         </th>
         <th>
@@ -49,43 +51,43 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ResolutionDate)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.ParentIssueKey)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Summary)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Environment)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Assignee)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.JiraIdentifier)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Project)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Reporter)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Votes)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Created)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.DueDate)
         </td>
         <td>
@@ -93,7 +95,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ResolutionDate)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

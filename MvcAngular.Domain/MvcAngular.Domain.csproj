@@ -60,7 +60,7 @@
     <Compile Include="Abstract\IUserRepositoty.cs" />
     <Compile Include="Concrete\EFUserRepository.cs" />
     <Compile Include="Concrete\MyDatabaseEntities .cs" />
-    <Compile Include="Entities\Issue.cs" />
+    <Compile Include="Entities\IssueEntity.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
