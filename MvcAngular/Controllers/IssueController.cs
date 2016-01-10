@@ -6,22 +6,22 @@ using System.Web.Mvc;
 
 using Atlassian.Jira;
 using MvcAngular.Domain.Entities;
+using System.Threading;
 
 namespace MvcAngular.Controllers
 {
     public class IssueController : Controller
     {
-      
+            
       //
       // GET: /Issue/
-
       public ActionResult Index()
       {
-          // create a connection to JIRA using the Rest client
-          //var jira = Jira.CreateRestClient("http://<your_jira_server>", "<user>", "<password>");
-          var jiraClient = Jira.CreateRestClient("http://ssu-jira.softserveinc.com",
-            "amarutc", "ii(41iGZ");
-
+          //// create a connection to JIRA using the Rest client
+          ////var jira = Jira.CreateRestClient("http://<your_jira_server>", "<user>", "<password>");
+        var jiraClient = Jira.CreateRestClient("http://ssu-jira.softserveinc.com",
+          "amarutc", "ii(41iGZ");
+                  
           // use LINQ syntax to retrieve issues
           //var issues = from i in jiraClient.Issues
           //             where i.Assignee == "admin" && i.Priority == "Major"
@@ -45,7 +45,8 @@ namespace MvcAngular.Controllers
             issueEntity.Assignee = issueTemp.Assignee;
             issueEntity.Created = issueTemp.Created;
             issueEntity.Summary = issueTemp.Summary;
-            
+
+            listIssueEntity.Add(issueEntity);
           }
 
         //return View(issues.ToList());
