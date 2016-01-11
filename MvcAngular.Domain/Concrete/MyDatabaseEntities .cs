@@ -14,6 +14,7 @@ namespace MvcAngular.Domain.Concrete
   {
     public MyDatabaseEntities() : base("name=MyDatabaseEntities ")
     {
+      //Configuration.LazyLoadingEnabled = false;
     }
 
     //protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -21,7 +22,7 @@ namespace MvcAngular.Domain.Concrete
     //  throw new UnintentionalCodeFirstException();
     //}
 
-    //public DbSet<Contact> Contacts { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
     public DbSet<User> Users { get; set; }
   }
 }

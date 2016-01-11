@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "GetIssues";
+}
+
+<h2>GetIssues</h2>
+
+<div ng-controller="GetIssuesController">
+    <div style="font-weight: bold">
+        GetIssues Details
+    </div>
+
+    <table>
+        <tr>
+            <td>First Name :</td>
+            <td>{{IssueList[0].Project}}</td>
+        </tr>
+        <tr>
+            <td>Last Name : </td>
+            <td>{{IssueList[0].Assignee}}</td>
+        </tr>
+        <tr>
+            <td>Contact No1:</td>
+            <td>{{IssueList[0].Created}}</td>
+        </tr>
+        <tr>
+            <td>Contact No2:</td>
+            <td>{{IssueList[0].Summary}}</td>
+        </tr>
+        
+    </table>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/AngularController/GetIssuesController.js"></script>
+}

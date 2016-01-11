@@ -210,6 +210,8 @@
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularController\GetIssuesController.js" />
+    <Content Include="Scripts\AngularController\Part2Controller.js" />
     <Content Include="Scripts\AngularController\Part3Controller.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -260,6 +262,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Issue\Index.cshtml" />
+    <Content Include="Views\Home\Part2.cshtml" />
+    <Content Include="Views\Issue\GetIssues.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -31,16 +31,34 @@ namespace MvcAngular.ConsoleApp
   {
     public static void Main(string[] args)
     {
-        EFUserRepository efUserRepo = new EFUserRepository();
+      EFUserRepository efUserRepo = new EFUserRepository();
+
+      //User user1 = new User { Username = "user1", Password = "pass1", FullName = "John Doe" };
+      User user1 = new User { Username = "user1", Password = SHA512.Encode("pass1"), FullName = "John Doe" };
+
+      Console.WriteLine(user1.Username);
+      Console.WriteLine(user1.Password);
+      Console.WriteLine(user1.FullName);
+
+      efUserRepo.SaveUser(user1);
+      // ------
+        EFContactRepository efContactRepo = new EFContactRepository();
 
         //User user1 = new User { Username = "user1", Password = "pass1", FullName = "John Doe" };
-        User user1 = new User { Username = "user1", Password = SHA512.Encode("pass1"), FullName = "John Doe" };
+        Contact contact1 = new Contact { 
+          FirstName = "FirstName1", 
+          LastName = "LastName1", 
+          ContactNo1 = "ContactNo1",
+          ContactNo2 = "ContactNo2",
+          EmailId = "EmailId",
+          Address = "Address"
+        };
 
-        Console.WriteLine(user1.Username);
-        Console.WriteLine(user1.Password);
-        Console.WriteLine(user1.FullName);
+        Console.WriteLine(contact1.FirstName);
+        Console.WriteLine(contact1.LastName);
+        Console.WriteLine(contact1.ContactNo1);
 
-        efUserRepo.SaveUser(user1);
+        efContactRepo.SaveContact(contact1);
 
     }
   }

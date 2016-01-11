@@ -57,9 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IContactRepository.cs" />
     <Compile Include="Abstract\IUserRepositoty.cs" />
+    <Compile Include="Concrete\EFContactRepository.cs" />
     <Compile Include="Concrete\EFUserRepository.cs" />
     <Compile Include="Concrete\MyDatabaseEntities .cs" />
+    <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\IssueEntity.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

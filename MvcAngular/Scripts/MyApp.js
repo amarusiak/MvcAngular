@@ -9,6 +9,6 @@
     app.controller('HomeController',
         function ($scope) {  // here $scope is used for share data between view and controller
             // $scope.Message = " Part1 Message .";
-            $scope.Message = " Work Message .";
+            $scope.Message = " Part1 : Work Message. ";
         });
 })();

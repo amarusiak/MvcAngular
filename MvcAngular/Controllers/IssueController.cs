@@ -53,6 +53,46 @@ namespace MvcAngular.Controllers
           return View(listIssueEntity);
       }
 
+      //
+      // GET: /Data/
+      //For fetch Last Contact
+      public JsonResult GetIssues()
+      {
+        //// create a connection to JIRA using the Rest client
+        ////var jira = Jira.CreateRestClient("http://<your_jira_server>", "<user>", "<password>");
+        var jiraClient = Jira.CreateRestClient("http://ssu-jira.softserveinc.com",
+          "amarutc", "ii(41iGZ");
+
+        // use LINQ syntax to retrieve issues
+        //var issues = from i in jiraClient.Issues
+        //             where i.Assignee == "admin" && i.Priority == "Major"
+        //             orderby i.Created
+        //             select i;
+
+        var issues = from i in jiraClient.Issues
+                     //where i.Assignee == "admin" && i.Priority == "Major"
+                     where i.Project == "Rv-015.Net"
+                     //&& ( (i.Assignee == "Mykhailo Omel'chuk") || (i.Assignee == "Oleksandr Feodruk") )
+                     orderby i.Created
+                     select i;
+
+        List<IssueEntity> listIssueEntity = new List<IssueEntity>();
+
+        foreach (var issueTemp in issues)
+        {
+          IssueEntity issueEntity = new IssueEntity();
+
+          issueEntity.Project = issueTemp.Project;
+          issueEntity.Assignee = issueTemp.Assignee;
+          issueEntity.Created = issueTemp.Created;
+          issueEntity.Summary = issueTemp.Summary;
+
+          listIssueEntity.Add(issueEntity);
+        }
+                
+        return new JsonResult { Data = listIssueEntity, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+      }
+
 
         // GET: /Issue/
         //public ActionResult Index()
